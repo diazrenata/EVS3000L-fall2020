@@ -3,6 +3,8 @@ install.packages("rgdal")
 
 library(prism)
 get_prism_annual(type="ppt", years = c(1985, 2014), keepZip=FALSE)
+get_prism_annual(type="tmean", years = c(1985, 2014), keepZip=FALSE)
+
 prism_files <- ls_prism_data()
 prism_dat <- prism_stack(prism_files)
 
@@ -23,15 +25,10 @@ install.packages("tigris")
 
 library(tigris)
 states <- states(cb = T)
-plot(states)
 
 library(ggplot2)
-library(dplyr)
 library(raster)
 
-states_climate <- states %>%
-  select(NAME, geometry)
+onestate_temp_change <- crop(mask(temp_change, states[1,]), states[1,])
 
-onestate_temp_change <- crop(mask(temp_change, states_climate[1,]), states_climate[1,])
-
-extract(temp_change, states_climate[1,], fun = mean, na.rm = T)
+extract(temp_change, states[1,], fun = mean, na.rm = T)
