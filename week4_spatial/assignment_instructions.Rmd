@@ -4,7 +4,7 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = F,message = F, eval = F)
+knitr::opts_chunk$set(echo = TRUE, warning = F,message = F, eval = T)
 ```
 
 ## Setup
@@ -145,5 +145,25 @@ mean_precip_change
 
 
 ## Results to submit
+
+* Which state (or territory) did you choose?
+* Copy-paste the plots for precipitation and temperature change for that state or territory
+* What were the mean values for temperature and precipitation change for that state?
+
+Running this code will give you all of these results:
+
+```{r results, echo = F}
+
+print(paste0("State: ", my_state$NAME[1]))
+
+plot(my_state_temp_change)
+
+plot(my_state_precip_change)
+
+print(paste0("Mean temperature change: ", mean_temp_change))
+
+print(paste0("Mean precipitation change: ", mean_precip_change))
+
+```
 
 ## Reflection questions
