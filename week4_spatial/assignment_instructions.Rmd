@@ -46,10 +46,12 @@ options(prism.path = "Documents/EVS3000L/week4/prism")
 
 ## Download and load temperature and precipitation files
 
-```{r download prism files}
+```{r download prism files, eval =F}
 get_prism_annual(type="ppt", years = c(1985, 2014), keepZip=FALSE)
 get_prism_annual(type="tmean", years = c(1985, 2014), keepZip=FALSE)
+```
 
+```{r load prism}
 prism_files <- ls_prism_data()
 prism_dat <- prism_stack(prism_files)
 names(prism_dat) <- c("precip_1985", "precip_2014", "temp_1985", "temp_2014")
