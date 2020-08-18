@@ -66,13 +66,6 @@ A slope of 0 reflects no systematic change over time.
 **What do the linear models tell us about change in species richness and
 abundance over the time series?**
 
-## Results to submit
-
-Save your plots and results with this code:
-
-Upload your plots and results to eLearning. \[elearning upload
-instructions\]
-
 ## Reflections
 
 Finish your text submission by answering these questions:
@@ -88,3 +81,10 @@ Finish your text submission by answering these questions:
     brainstorm questions you might be able to answer by combining
     spatial environmental data with timeseries data like what we have
     here?
+
+## Results to submit
+
+Save your plots and results with this code:
+
+Submit your plots and results to eLearning. \[elearning upload
+instructions\]
