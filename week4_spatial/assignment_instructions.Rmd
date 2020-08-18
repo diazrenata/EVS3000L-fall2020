@@ -4,15 +4,35 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = F,message = F, eval = T)
+knitr::opts_chunk$set(echo = TRUE, warning = F,message = F, eval = F)
 ```
+
+## Getting to UFApps
+
+We will use a version of R that is hosted in the cloud for UF students through UFApps.
+
+Navigate to: https://info.apps.ufl.edu
+
+Click on the orange "Login to UFApps" button in the upper right. This link may also take you to the login page: https://apps.ufl.edu/ 
+
+Log in using your GatorLink.
+
+Click on "Apps" in the top menu bar. Scroll down to RStudio and click on it to launch it. It may take a minute. Sometimes the connection will not go through, but if you launch it again it works. If you consistently can't get through, reach out to Renata and she will try and figure out another solution. 
+
+You may see a prompt to "set up secure access to your files". There's no need to do this for this course, so go ahead and click Not Now. 
 
 ## Setup
 
-Copy and paste this code to set up:
+Select "File", "New File", and "RScript" in the top left menu bar. This will give you a place to copy and paste code.
+
+To run code, either highlight it and click the "Run" button in the top right of the top left pane, or highlight it and press Ctrl + Enter. 
+
+Copy and paste this code to set up. You may get a notification about copy-pasting stuff into the virtual session. Click OK and continue.
+
+
 
 ```{r install packages, include =TRUE, eval= F}
-install.packages(c("prism", "tigris" "raster", "rgdal"))
+install.packages(c("prism", "tigris", "raster", "rgdal"))
 
 
 if(!dir.exists("Documents/EVS3000L")) {
@@ -24,7 +44,7 @@ dir.create("Documents/EVS3000L/week4")
 if(!dir.exists("Documents/EVS3000L/week4/prism")) {
 dir.create("Documents/EVS3000L/week4/prism")
 }
-setwd("Documents/EVS3000L/week4")
+setwd("Documents/EVS3000L/week4/prism")
 
 ```
 
@@ -36,12 +56,14 @@ library(tigris)
 library(rgdal)
 ```
 
+You may get "warning messages". That's okay.
+
 ```{r prism path local, include = F}
 options(prism.path = here::here("week4_spatial", "prism"))
 ```
 
 ```{r prism path ufapps, eval = F}
-options(prism.path = "Documents/EVS3000L/week4/prism")
+options(prism.path = getwd())
 ```
 
 ## Download and load temperature and precipitation files
@@ -84,12 +106,11 @@ plot(temp_change)
 ```{r get state boundaries}
 states <- states(cb = T)
 
-states <- states %>%
-  dplyr::select(NAME)
+states <- states[, "NAME"]
 
 ```
 
-```{r plot contiguous, echo = F}
+```{r plot contiguous}
 plot(dplyr::filter(states,
                    NAME != "United States Virgin Islands",
               NAME != "Commonwealth of the Northern Mariana Islands",
@@ -148,24 +169,42 @@ mean_precip_change
 
 ## Results to submit
 
-* Which state (or territory) did you choose?
-* Copy-paste the plots for precipitation and temperature change for that state or territory
-* What were the mean values for temperature and precipitation change for that state?
+Running this code will save copies of your plots and results so you can upload them to eLearning. 
 
-Running this code will give you all of these results:
+```{r results}
 
-```{r results, echo = F}
-
-print(paste0("State: ", my_state$NAME[1]))
-
+jpeg('temp_change.jpg')
 plot(my_state_temp_change)
+dev.off()
 
+
+jpeg('precip_change.jpg')
 plot(my_state_precip_change)
+dev.off()
 
-print(paste0("Mean temperature change: ", mean_temp_change))
+results <- data.frame(
+  state = my_state$NAME[1],
+  mean_temp_change = mean_temp_change,
+  mean_precip_change = mean_precip_change
+)
 
-print(paste0("Mean precipitation change: ", mean_precip_change))
+write.csv(results, "results.csv", row.names = F)
 
 ```
 
-## Reflection questions
+After you run this section, go ahead and exit RStudio.
+
+## Uploading your results
+
+Go back to the Apps page in UFApps. 
+
+Scroll to eLearning and launch it. Log in to Canvas.
+
+Navigate to the Spatial Analysis assignment and go to Submit and File Upload. 
+
+In the file selection navigation window, go to Documents > EVS3000L > week4 > prism. Select "precip_change.jpg", "temp_change.jpg", and "results.csv". Upload them and submit. 
+
+## Reflections
+
+
+
