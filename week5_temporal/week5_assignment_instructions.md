@@ -1,0 +1,34 @@
+Week 5 Temporal analysis
+================
+
+## Getting to UFApps
+
+Here are the instructions to get to UFApps - they are the same as last
+week.  
+
+Navigate to: <https://info.apps.ufl.edu>
+
+Click on the orange “Login to UFApps” button in the upper right. This
+link may also take you to the login page: <https://apps.ufl.edu/>
+
+Log in using your GatorLink.
+
+Click on “Apps” in the top menu bar. Scroll down to RStudio and click on
+it to launch it. It may take a minute. Sometimes the connection will not
+go through, but if you launch it again it works. If you consistently
+can’t get through, reach out to Renata and she will try and figure out
+another solution.
+
+You may see a prompt to “set up secure access to your files”. There’s no
+need to do this for this course, so go ahead and click Not Now.
+
+## Setup
+
+Select “File”, “New File”, and “RScript” in the top left menu bar. This
+will give you a place to copy and paste code.
+
+To run code, either highlight it and click the “Run” button in the top
+right of the top left pane, or highlight it and press Ctrl + Enter.
+
+Copy and paste this code to set up. You may get a notification about
+copy-pasting stuff into the virtual session. Click OK and continue.
