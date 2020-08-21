@@ -34,6 +34,26 @@ Copy and paste this code to set up. You may get a notification about copy-pastin
 
 We will download data on a community of desert rodents located in southeastern Arizona. This community has been monitored on a monthly basis for over 40 years. 
 
+
+```{r get portal data with portalr, include = F}
+
+raw_portal_data <- portalr::abundance(time = "date")
+
+abundance_ts <- data.frame(
+  censusdate = raw_portal_data$censusdate,
+  total_abund = rowSums(raw_portal_data[, 2:22])
+)
+
+richness_ts <- data.frame(
+  censusdate = raw_portal_data$censusdate,
+  richness = rowSums(raw_portal_data[,2:22] > 0)
+)
+
+ts <- dplyr::left_join(abundance_ts, richness_ts)
+
+
+```
+
 ## Plot abundance and species richness data
 
 We will look at how two aspects of this community have changed over the past 40 years: the total number of species present, or species richness, and the total number of *individuals* present, or total abundance.
