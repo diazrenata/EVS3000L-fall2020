@@ -57,6 +57,7 @@ We will download data on a community of desert rodents located in southeastern A
 
 library(dplyr)
 
+
 raw_portal_data <- portalr::abundance(time = "date")
 
 abundance_ts <- data.frame(
@@ -81,6 +82,7 @@ ts <- ts %>%
   mutate(year = as.character(censusdate)) %>%
   mutate(year = substr(year, 0, 4)) %>%
   mutate(year = as.numeric(year)) %>%
+  filter(year > 1980) %>%
   group_by(year) %>%
   summarize(total_abundance = sum(total_abund),
             richness = sum(richness),
@@ -88,10 +90,11 @@ ts <- ts %>%
 
 write.csv(ts, "data/rodent_data.csv", row.names = F)
 
+rodent_data <- ts
+
 ```
 
-```{r get portal data from repo, eval = T}
-library(ggplot2)
+```{r get portal data from repo, eval = F}
 
 download.file("https://raw.githubusercontent.com/diazrenata/EVS3000L-fall2020/master/week5_temporal/data/rodent_data.csv", destfile = "data/rodent_data.csv")
 
@@ -104,6 +107,7 @@ rodent_data <- read.csv("data/rodent_data.csv", stringsAsFactors = F)
 We will look at how two aspects of this community have changed over the past 40 years: the total number of species present, or species richness, and the total number of *individuals* present, or total abundance.
 
 ```{r plot abundance and richness}
+library(ggplot2)
 
 richness_plot <- ggplot(rodent_data, aes(x = year, y = richness)) +
   geom_point() +
@@ -111,7 +115,7 @@ richness_plot <- ggplot(rodent_data, aes(x = year, y = richness)) +
   theme_bw() +
   ggtitle("Species richness over time")
 
-print(richness_plot)
+richness_plot
 
 
 abundance_plot <- ggplot(rodent_data, aes(x = year, y = total_abundance)) +

@@ -57,7 +57,7 @@ basis for over 40 years.
 ``` r
 library(ggplot2)
 
-download.file("https://raw.githubusercontent.com/diazrenata/EVS3000L-fall2020/master/week5_temporal/data/portal_rodent_data.csv", destfile = "data/rodent_data.csv")
+download.file("https://raw.githubusercontent.com/diazrenata/EVS3000L-fall2020/master/week5_temporal/data/rodent_data.csv", destfile = "data/rodent_data.csv")
 
 rodent_data <- read.csv("data/rodent_data.csv", stringsAsFactors = F)
 ```
@@ -93,13 +93,13 @@ abundance_plot
 ![](week5_assignment_instructions_files/figure-gfm/plot%20abundance%20and%20richness-2.png)<!-- -->
 
 ``` r
-biomass_plot <- ggplot(rodent_data, aes(x = year, y = total_biomass)) +
+spectab_plot <- ggplot(rodent_data, aes(x = year, y = spectab)) +
   geom_point() +
   geom_line() +
   theme_bw() +
-  ggtitle("Total biomass over time")
+  ggtitle("Dipodomys spectabilis over time")
 
-biomass_plot
+spectab_plot
 ```
 
 ![](week5_assignment_instructions_files/figure-gfm/plot%20abundance%20and%20richness-3.png)<!-- -->
