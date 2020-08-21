@@ -55,6 +55,8 @@ southeastern Arizona. This community has been monitored on a monthly
 basis for over 40 years.
 
 ``` r
+library(ggplot2)
+
 download.file("https://raw.githubusercontent.com/diazrenata/EVS3000L-fall2020/master/week5_temporal/data/portal_rodent_data.csv", destfile = "data/rodent_data.csv")
 
 rodent_data <- read.csv("data/rodent_data.csv", stringsAsFactors = F)
@@ -73,9 +75,12 @@ richness_plot <- ggplot(rodent_data, aes(x = year, y = richness)) +
   theme_bw() +
   ggtitle("Species richness over time")
 
-richness_plot
+print(richness_plot)
+```
 
+![](week5_assignment_instructions_files/figure-gfm/plot%20abundance%20and%20richness-1.png)<!-- -->
 
+``` r
 abundance_plot <- ggplot(rodent_data, aes(x = year, y = total_abundance)) +
   geom_point() +
   geom_line() +
@@ -83,8 +88,11 @@ abundance_plot <- ggplot(rodent_data, aes(x = year, y = total_abundance)) +
   ggtitle("Total number of individuals over time")
 
 abundance_plot
+```
 
+![](week5_assignment_instructions_files/figure-gfm/plot%20abundance%20and%20richness-2.png)<!-- -->
 
+``` r
 biomass_plot <- ggplot(rodent_data, aes(x = year, y = total_biomass)) +
   geom_point() +
   geom_line() +
@@ -93,6 +101,8 @@ biomass_plot <- ggplot(rodent_data, aes(x = year, y = total_biomass)) +
 
 biomass_plot
 ```
+
+![](week5_assignment_instructions_files/figure-gfm/plot%20abundance%20and%20richness-3.png)<!-- -->
 
 **What dynamics do you notice in these three time series? Do they look
 like they are increasing, decreasing, or not changing?** Include your
