@@ -30,12 +30,32 @@ To run code, either highlight it and click the "Run" button in the top right of 
 
 Copy and paste this code to set up. You may get a notification about copy-pasting stuff into the virtual session. Click OK and continue.
 
+```{r setup dirs, eval = F}
+
+
+if(!dir.exists("Documents/EVS3000L")) {
+dir.create("Documents/EVS3000L")
+}
+if(!dir.exists("Documents/EVS3000L/week5")) {
+dir.create("Documents/EVS3000L/week5")
+}
+if(!dir.exists("Documents/EVS3000L/week5/data")) {
+dir.create("Documents/EVS3000L/week5/data")
+}
+setwd("Documents/EVS3000L/week5/")
+
+library(ggplot2)
+
+```
+
 ## Download data
 
 We will download data on a community of desert rodents located in southeastern Arizona. This community has been monitored on a monthly basis for over 40 years. 
 
 
-```{r get portal data with portalr, include = F}
+```{r get portal data with portalr, include = F, eval =F}
+
+library(dplyr)
 
 raw_portal_data <- portalr::abundance(time = "date")
 
@@ -49,8 +69,35 @@ richness_ts <- data.frame(
   richness = rowSums(raw_portal_data[,2:22] > 0)
 )
 
-ts <- dplyr::left_join(abundance_ts, richness_ts)
+biomass_data <- portalr::biomass(time = "date")
 
+biomass_ts <- data.frame(
+  censusdate = biomass_data$censusdate,
+  total_biomass = rowSums(biomass_data[, 2:22])
+)
+
+ts <- left_join(abundance_ts, richness_ts) %>%
+  left_join(biomass_ts)
+
+
+ts <- ts %>%
+  mutate(year = as.character(censusdate)) %>%
+  mutate(year = substr(year, 0, 4)) %>%
+  mutate(year = as.numeric(year)) %>%
+  group_by(year) %>%
+  summarize(total_abundance = sum(total_abund),
+            richness = sum(richness),
+            total_biomass = sum(total_biomass))
+
+write.csv(ts, "data/portal_rodent_data.csv", row.names = F)
+
+```
+
+```{r get portal data from repo, eval = T}
+
+download.file("https://raw.githubusercontent.com/diazrenata/EVS3000L-fall2020/master/week5_temporal/data/portal_rodent_data.csv", destfile = "data/rodent_data.csv")
+
+rodent_data <- read.csv("data/rodent_data.csv", stringsAsFactors = F)
 
 ```
 
@@ -58,7 +105,37 @@ ts <- dplyr::left_join(abundance_ts, richness_ts)
 
 We will look at how two aspects of this community have changed over the past 40 years: the total number of species present, or species richness, and the total number of *individuals* present, or total abundance.
 
-**What dynamics do you notice in these two time series? Do they look like they are increasing, decreasing, or not changing?** Include your observations from these plots in your text submission. 
+```{r plot abundance and richness}
+
+richness_plot <- ggplot(rodent_data, aes(x = year, y = richness)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  ggtitle("Species richness over time")
+
+richness_plot
+
+
+abundance_plot <- ggplot(rodent_data, aes(x = year, y = total_abundance)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  ggtitle("Total number of individuals over time")
+
+abundance_plot
+
+
+biomass_plot <- ggplot(rodent_data, aes(x = year, y = total_biomass)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  ggtitle("Total biomass over time")
+
+biomass_plot
+
+```
+
+**What dynamics do you notice in these three time series? Do they look like they are increasing, decreasing, or not changing?** Include your observations from these plots in your text submission. 
 
 ## Statistical analysis
 

@@ -33,11 +33,32 @@ right of the top left pane, or highlight it and press Ctrl + Enter.
 Copy and paste this code to set up. You may get a notification about
 copy-pasting stuff into the virtual session. Click OK and continue.
 
+``` r
+if(!dir.exists("Documents/EVS3000L")) {
+dir.create("Documents/EVS3000L")
+}
+if(!dir.exists("Documents/EVS3000L/week5")) {
+dir.create("Documents/EVS3000L/week5")
+}
+if(!dir.exists("Documents/EVS3000L/week5/data")) {
+dir.create("Documents/EVS3000L/week5/data")
+}
+setwd("Documents/EVS3000L/week5/")
+
+library(ggplot2)
+```
+
 ## Download data
 
 We will download data on a community of desert rodents located in
 southeastern Arizona. This community has been monitored on a monthly
 basis for over 40 years.
+
+``` r
+download.file("https://raw.githubusercontent.com/diazrenata/EVS3000L-fall2020/master/week5_temporal/data/portal_rodent_data.csv", destfile = "data/rodent_data.csv")
+
+rodent_data <- read.csv("data/rodent_data.csv", stringsAsFactors = F)
+```
 
 ## Plot abundance and species richness data
 
@@ -45,7 +66,35 @@ We will look at how two aspects of this community have changed over the
 past 40 years: the total number of species present, or species richness,
 and the total number of *individuals* present, or total abundance.
 
-**What dynamics do you notice in these two time series? Do they look
+``` r
+richness_plot <- ggplot(rodent_data, aes(x = year, y = richness)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  ggtitle("Species richness over time")
+
+richness_plot
+
+
+abundance_plot <- ggplot(rodent_data, aes(x = year, y = total_abundance)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  ggtitle("Total number of individuals over time")
+
+abundance_plot
+
+
+biomass_plot <- ggplot(rodent_data, aes(x = year, y = total_biomass)) +
+  geom_point() +
+  geom_line() +
+  theme_bw() +
+  ggtitle("Total biomass over time")
+
+biomass_plot
+```
+
+**What dynamics do you notice in these three time series? Do they look
 like they are increasing, decreasing, or not changing?** Include your
 observations from these plots in your text submission.
 
