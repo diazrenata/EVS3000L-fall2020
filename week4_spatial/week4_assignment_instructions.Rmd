@@ -27,12 +27,13 @@ Select "File", "New File", and "RScript" in the top left menu bar. This will giv
 
 To run code, either highlight it and click the "Run" button in the top right of the top left pane, or highlight it and press Ctrl + Enter. 
 
-Copy and paste this code to set up. You may get a notification about copy-pasting stuff into the virtual session. Click OK and continue.
+Copy and paste this code to set up. You may get a notification about copy-pasting into the virtual session. Click OK and continue.
 
+
+This code will set up your file directories so you will be able to download data files and save your results later:
 
 
 ```{r install packages, include =TRUE, eval= F}
-install.packages(c("prism", "tigris", "raster", "rgdal"))
 
 
 if(!dir.exists("Documents/EVS3000L")) {
@@ -48,7 +49,13 @@ setwd("Documents/EVS3000L/week4/prism")
 
 ```
 
+
+This code will download the activate the tools we need to work with spatial data in R. (R is an especially powerful programming environment because R users all over the world volunteer to build __R packages__, which are custom-built sets of functions to accomplish all kinds of analyses and other tasks. R packages are free and open-source, which means anyone can download them and use them for their work. Here we are downloading and activating several R packages that are commonly used for spatial analysis.) 
+
 ```{r libraries}
+install.packages(c("prism", "tigris", "raster", "rgdal"))
+
+
 library(dplyr)
 library(ggplot2)
 library(prism)
@@ -57,6 +64,10 @@ library(rgdal)
 ```
 
 You may get "warning messages". That's okay.
+
+
+Here we'll tell R where to put the climate data we're about to download:
+
 
 ```{r prism path local, include = F}
 options(prism.path = here::here("week4_spatial", "prism"))
@@ -68,10 +79,17 @@ options(prism.path = getwd())
 
 ## Download and load temperature and precipitation files
 
+We'll download spatial data files of *annual precipitation* and *mean annual temperature* for the contiguous United States in 1985 and 2014 from the Prism Climate Project. This code will download the data files to your files:
+
+
 ```{r download prism files, eval =F}
 get_prism_annual(type="ppt", years = c(1985, 2014), keepZip=FALSE)
 get_prism_annual(type="tmean", years = c(1985, 2014), keepZip=FALSE)
 ```
+
+
+And this code will load the data files you just downloaded into your R session:
+
 
 ```{r load prism}
 prism_files <- ls_prism_data()
@@ -82,6 +100,8 @@ names(prism_dat) <- c("precip_1985", "precip_2014", "temp_1985", "temp_2014")
 
 ## Plot temperature and precipitation data
 
+It's good practice to look at data whenever you first load it. We'll plot these data as heatmaps of precipitation and temperature:
+
 ```{r plot prism}
 
 plot(prism_dat)
@@ -89,6 +109,8 @@ plot(prism_dat)
 ```
 
 ## Compute variable change
+
+Now let's explore some ways to analyze this data. We'll calculate how much these climate variables have changed from 1985 until 2014. We'll subtract the 1985 values from the 2014 values, and plot the heatmaps of *change*:
 
 ```{r compute change}
 
