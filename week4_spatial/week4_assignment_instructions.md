@@ -122,31 +122,93 @@ plot(precip_change)
 plot(temp_change)
 ```
 
-## Zoom in on a state
+## State boundaries
+
+Say we are interested in how climate has changed in a particular state
+over this period. We can filter the PRISM climate data to focus on a
+particular geographic area. To filter to a specific state, we need the
+state boundaries.
+
+The US Census department publishes quite a lot of useful data products,
+including maps of state boundaries. This code will load the census map
+of state boundaries in to R, and filter it to remove the non-contiguous
+states and territories (which are not included in the PRISM climate
+data).
 
 ``` r
 states <- states(cb = T)
 
 states <- states[, "NAME"]
-```
 
-``` r
-plot(dplyr::filter(states,
+states <- filter(states,
                    NAME != "United States Virgin Islands",
               NAME != "Commonwealth of the Northern Mariana Islands",
               NAME != "Hawaii",
               NAME != "Guam",
               NAME != "American Samoa",
               NAME != "Alaska",
-              NAME != "Puerto Rico"))
+              NAME != "Puerto Rico")
 ```
 
-Fill in a state (or territory) of your choice. Here are your options -
-the text you fill in must match exactly.
+Let’s plot what we have just loaded.
 
 ``` r
-unique(states$NAME)
+plot(states)
 ```
+
+We have the boundaries for all the states and territories. **We’ll work
+through the next few chunks of code focusing on Florida. Then, re-do
+this analysis yourself using a different state.**
+
+## Extracting Florida
+
+This will extract just the boundaries for Florida:
+
+``` r
+florida_boundaries <- filter(states, NAME == "Florida")
+
+plot(florida_boundaries)
+```
+
+## Plot precipitation and temperature change for Florida
+
+We use the `crop` and `mask` functions to filter our maps of temperature
+and precipitation change for the whole US, to just Florida:
+
+``` r
+library(raster)
+
+florida_temp_change <- crop(mask(temp_change, florida_boundaries[1,]), florida_boundaries[1,])
+
+florida_precip_change <- crop(mask(precip_change, florida_boundaries[1,]), florida_boundaries[1,])
+
+plot(florida_temp_change)
+
+plot(florida_precip_change)
+```
+
+## Compute mean variable change for Florida
+
+We can extract the actual data values and compute summary statistics on
+them. For example, we can compute the mean temperature change and mean
+precipitation change across the whole state:
+
+``` r
+florida_mean_temp_change =extract(florida_temp_change, florida_boundaries[1,], fun = mean, na.rm = T)
+
+florida_mean_precip_change =extract(florida_precip_change, florida_boundaries[1,], fun = mean, na.rm = T)
+
+print(paste0("Mean temperature change: ", florida_mean_temp_change))
+
+print(paste0("Mean precipitation change: ", florida_mean_precip_change))
+```
+
+## Run with a diffferent state
+
+Now you’ll repeat the filtering and summary statistic computation using
+a state other than Florida. To do this, run the following code and
+replace `NAME == "Florida"` below with `NAME == "(the name of the state
+you choose)"`.
 
 ``` r
 my_state <- filter(states, NAME == "Florida")
@@ -154,11 +216,17 @@ my_state <- filter(states, NAME == "Florida")
 plot(my_state)
 ```
 
-## Plot precipitation and temperature change for that state
+**You must spell the name of your state, and capitalize it, exactly as
+it is spelled in the data file R has\!** This will give you a list of
+exactly how everything is spelled in the data file.
 
 ``` r
-library(raster)
+unique(states$NAME)
+```
 
+## Plot precipitation and temperature change for your state
+
+``` r
 my_state_temp_change <- crop(mask(temp_change, my_state[1,]), my_state[1,])
 
 my_state_precip_change <- crop(mask(precip_change, my_state[1,]), my_state[1,])
@@ -168,16 +236,16 @@ plot(my_state_temp_change)
 plot(my_state_precip_change)
 ```
 
-## Compute mean variable change for that state
+## Compute mean variable change for your state
 
 ``` r
 mean_temp_change =extract(my_state_temp_change, my_state[1,], fun = mean, na.rm = T)
 
 mean_precip_change =extract(my_state_precip_change, my_state[1,], fun = mean, na.rm = T)
 
-mean_temp_change
+print(paste0("Mean temperature change: ", mean_temp_change))
 
-mean_precip_change
+print(paste0("Mean precipitation change: ", mean_precip_change))
 ```
 
 ## Results to submit
@@ -221,5 +289,15 @@ week4 \> prism. Select “precip\_change.jpg”, “temp\_change.jpg”, and
 
 ## Reflections
 
-Please submit a text entry with your answers to these questions about
-the analysis:
+Please also upload a Word or text document with your answers to these
+questions about the exercise:
+
+  - How do the map, direction, or magnitude of change in your chosen
+    state compare or contrast with your intuition or previous
+    expectations?
+  - Are there other variables you think might give you a more
+    informative or complete picture?
+  - More broadly, can you think of ways you could combine spatial
+    information, like what we’ve used here, with the local biodiversity
+    sampling you have done so far to learn more about the state of
+    ecosystems locally or more generally?
