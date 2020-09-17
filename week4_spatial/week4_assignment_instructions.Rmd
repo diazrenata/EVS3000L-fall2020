@@ -307,6 +307,9 @@ citation("ggplot2")
 citation("prism")
 citation("tigris")
 citation("rgdal")
+citation("raster")
 ```
 
-PRISM Climate Data: PRISM Climate Group, Oregon State University, http://prism.oregonstate.edu, created 4 Feb 2004US Census Bureau. "TIGER/Line shapefiles." US Census Bureau (2010). https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html
+PRISM Climate Data: PRISM Climate Group, Oregon State University, http://prism.oregonstate.edu, created 4 Feb 2004
+
+US Census Bureau. "TIGER/Line shapefiles." US Census Bureau (2010). https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html

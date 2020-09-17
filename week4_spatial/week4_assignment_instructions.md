@@ -407,7 +407,29 @@ citation("rgdal")
     ##     url = {https://CRAN.R-project.org/package=rgdal},
     ##   }
 
+``` r
+citation("raster")
+```
+
+    ## 
+    ## To cite package 'raster' in publications use:
+    ## 
+    ##   Robert J. Hijmans (2020). raster: Geographic Data Analysis and
+    ##   Modeling. R package version 3.3-13.
+    ##   https://CRAN.R-project.org/package=raster
+    ## 
+    ## A BibTeX entry for LaTeX users is
+    ## 
+    ##   @Manual{,
+    ##     title = {raster: Geographic Data Analysis and Modeling},
+    ##     author = {Robert J. Hijmans},
+    ##     year = {2020},
+    ##     note = {R package version 3.3-13},
+    ##     url = {https://CRAN.R-project.org/package=raster},
+    ##   }
+
 PRISM Climate Data: PRISM Climate Group, Oregon State University,
-<http://prism.oregonstate.edu>, created 4 Feb 2004US Census Bureau.
-“TIGER/Line shapefiles.” US Census Bureau (2010).
+<http://prism.oregonstate.edu>, created 4 Feb 2004
+
+US Census Bureau. “TIGER/Line shapefiles.” US Census Bureau (2010).
 <https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>
