@@ -297,3 +297,16 @@ Please also upload a Word or text document with your answers to these questions 
 * How do the map, direction, or magnitude of change in your chosen state compare or contrast with your intuition or previous expectations?
 * Are there other variables you think might give you a more informative or complete picture?
 * More broadly, can you think of ways you could combine spatial information, like what we've used here, with the local biodiversity sampling you have done so far to learn more about the state of ecosystems locally or more generally?
+
+## Package and data citations
+
+```{r package citations, eval = T}
+
+citation("dplyr")
+citation("ggplot2")
+citation("prism")
+citation("tigris")
+citation("rgdal")
+```
+
+PRISM Climate Data: PRISM Climate Group, Oregon State University, http://prism.oregonstate.edu, created 4 Feb 2004US Census Bureau. "TIGER/Line shapefiles." US Census Bureau (2010). https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html

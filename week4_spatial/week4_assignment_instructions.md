@@ -301,3 +301,113 @@ questions about the exercise:
     information, like what we’ve used here, with the local biodiversity
     sampling you have done so far to learn more about the state of
     ecosystems locally or more generally?
+
+## Package and data citations
+
+``` r
+citation("dplyr")
+```
+
+    ## 
+    ## To cite package 'dplyr' in publications use:
+    ## 
+    ##   Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
+    ##   (2020). dplyr: A Grammar of Data Manipulation. R package version
+    ##   1.0.1. https://CRAN.R-project.org/package=dplyr
+    ## 
+    ## A BibTeX entry for LaTeX users is
+    ## 
+    ##   @Manual{,
+    ##     title = {dplyr: A Grammar of Data Manipulation},
+    ##     author = {Hadley Wickham and Romain François and Lionel Henry and Kirill Müller},
+    ##     year = {2020},
+    ##     note = {R package version 1.0.1},
+    ##     url = {https://CRAN.R-project.org/package=dplyr},
+    ##   }
+
+``` r
+citation("ggplot2")
+```
+
+    ## 
+    ## To cite ggplot2 in publications, please use:
+    ## 
+    ##   H. Wickham. ggplot2: Elegant Graphics for Data Analysis.
+    ##   Springer-Verlag New York, 2016.
+    ## 
+    ## A BibTeX entry for LaTeX users is
+    ## 
+    ##   @Book{,
+    ##     author = {Hadley Wickham},
+    ##     title = {ggplot2: Elegant Graphics for Data Analysis},
+    ##     publisher = {Springer-Verlag New York},
+    ##     year = {2016},
+    ##     isbn = {978-3-319-24277-4},
+    ##     url = {https://ggplot2.tidyverse.org},
+    ##   }
+
+``` r
+citation("prism")
+```
+
+    ## 
+    ##   Edmund M. Hart and Kendon Bell (2015) prism: Download data from the
+    ##   Oregon prism project. R package version 0.0.6
+    ##   http://github.com/ropensci/prism DOI: 10.5281/zenodo.33663
+    ## 
+    ## A BibTeX entry for LaTeX users is
+    ## 
+    ##   @Manual{,
+    ##     title = {prism: Download data from the Oregon prism project},
+    ##     author = {Edmund M. Hart and Kendon Bell},
+    ##     year = {2015},
+    ##     note = {R package version 0.0.6},
+    ##     url = {http://github.com/ropensci/prism},
+    ##     doi = {10.5281/zenodo.33663},
+    ##   }
+
+``` r
+citation("tigris")
+```
+
+    ## 
+    ## To cite package 'tigris' in publications use:
+    ## 
+    ##   Kyle Walker (2020). tigris: Load Census TIGER/Line Shapefiles. R
+    ##   package version 1.0. https://CRAN.R-project.org/package=tigris
+    ## 
+    ## A BibTeX entry for LaTeX users is
+    ## 
+    ##   @Manual{,
+    ##     title = {tigris: Load Census TIGER/Line Shapefiles},
+    ##     author = {Kyle Walker},
+    ##     year = {2020},
+    ##     note = {R package version 1.0},
+    ##     url = {https://CRAN.R-project.org/package=tigris},
+    ##   }
+
+``` r
+citation("rgdal")
+```
+
+    ## 
+    ## To cite package 'rgdal' in publications use:
+    ## 
+    ##   Roger Bivand, Tim Keitt and Barry Rowlingson (2020). rgdal: Bindings
+    ##   for the 'Geospatial' Data Abstraction Library. R package version
+    ##   1.5-16. https://CRAN.R-project.org/package=rgdal
+    ## 
+    ## A BibTeX entry for LaTeX users is
+    ## 
+    ##   @Manual{,
+    ##     title = {rgdal: Bindings for the 'Geospatial' Data Abstraction Library},
+    ##     author = {Roger Bivand and Tim Keitt and Barry Rowlingson},
+    ##     year = {2020},
+    ##     note = {R package version 1.5-16},
+    ##     url = {https://CRAN.R-project.org/package=rgdal},
+    ##   }
+
+PRISM Climate Data: PRISM Climate Group, Oregon State University,
+<http://prism.oregonstate.edu>, created 4 Feb 2004US Census Bureau.
+“TIGER/Line shapefiles.” US Census Bureau (2010).
+<https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-line-file.html>
