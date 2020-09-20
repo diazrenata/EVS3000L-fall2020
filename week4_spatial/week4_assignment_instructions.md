@@ -80,9 +80,9 @@ options(prism.path = getwd())
 ## Download and load temperature and precipitation files
 
 We’ll download spatial data files of *annual precipitation* and *mean
-annual temperature* for the contiguous United States in 1985 and 2014
-from the Prism Climate Project. This code will download the data files
-to your files:
+annual temperature* (in degrees C) for the contiguous United States in
+1985 and 2014 from the Prism Climate Project. This code will download
+the data files to your files:
 
 ``` r
 get_prism_annual(type="ppt", years = c(1985, 2014), keepZip=FALSE)
