@@ -210,8 +210,10 @@ a state other than Florida. To do this, run the following code and
 replace `NAME == "Florida"` below with `NAME == "(the name of the state
 you choose)"`.
 
-As of 1:30pm on 9/24/20, I’ll also ask you to choose a state *other than
-Colorado*. If you did the assignment before 1:30pm on 9/24, that’s ok.
+As of 1pm on 9/24/20, I’ll also ask you to choose a state **other than
+Colorado**. If you did the assignment before 1pm on 9/24, that’s ok.
+When you submit the assignment, let me know that that’s what happened in
+the assignment comments.
 
 ``` r
 my_state <- filter(states, NAME == "Florida")
