@@ -210,6 +210,9 @@ a state other than Florida. To do this, run the following code and
 replace `NAME == "Florida"` below with `NAME == "(the name of the state
 you choose)"`.
 
+As of 1:30pm on 9/24/20, I’ll also ask you to choose a state *other than
+Colorado*. If you did the assignment before 1:30pm on 9/24, that’s ok.
+
 ``` r
 my_state <- filter(states, NAME == "Florida")
 
@@ -221,7 +224,7 @@ it is spelled in the data file R has\!** This will give you a list of
 exactly how everything is spelled in the data file.
 
 ``` r
-unique(states$NAME)
+unique(states$NAME)[ which(unique(states$NAME) != "Colorado")]
 ```
 
 ## Plot precipitation and temperature change for your state
