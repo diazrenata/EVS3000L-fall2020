@@ -53,7 +53,7 @@ library(ggplot2)
 We will download data on a community of desert rodents located in southeastern Arizona. This community has been monitored on a monthly basis for over 40 years. 
 
 
-```{r get portal data with portalr, include = F}
+```{r get portal data with portalr, include = F, eval = F}
 
 library(dplyr)
 
@@ -71,7 +71,7 @@ richness_ts <- data.frame(
 )
 
 spectab_ts <- raw_portal_data %>%
-  select(censusdate, DS)
+  select(censusdate, DS, PP, DM, PB)
 
 
 ts <- left_join(abundance_ts, richness_ts) %>%
@@ -86,7 +86,10 @@ ts <- ts %>%
   group_by(year) %>%
   summarize(total_abundance = sum(total_abund),
             richness = sum(richness),
-            spectab = sum(DS))
+            bannertail = sum(DS),
+            merriami = sum(DM),
+            pocketmouse = sum(PP),
+            baileys = sum(PB))
 
 write.csv(ts, "data/rodent_data.csv", row.names = F)
 
@@ -125,6 +128,8 @@ abundance_plot <- ggplot(rodent_data, aes(x = year, y = total_abundance)) +
   ggtitle("Total number of individuals over time")
 
 abundance_plot
+```
+
 
 
 spectab_plot <- ggplot(rodent_data, aes(x = year, y = spectab)) +
