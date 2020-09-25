@@ -239,6 +239,7 @@ own.
 **Please answer the questions in this section in a Word or text document
 and submit them along with your results.** The questions you should
 answer are also collected here:
+<https://github.com/diazrenata/EVS3000L-fall2020/blob/master/week5_temporal/week5_assignment_questions.md>
 
 ### Banner-tailed kangaroo rats
 
@@ -377,3 +378,4 @@ Submit `species_dynamics.jpg` and `species_lm.Rds` to eLearning via file
 upload, along with a Word or text document with your answers to the
 questions. To help you keep track of the questions, the ones you should
 answer in your submission are listed here:
+<https://github.com/diazrenata/EVS3000L-fall2020/blob/master/week5_temporal/week5_assignment_questions.md>
