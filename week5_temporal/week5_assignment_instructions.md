@@ -70,7 +70,8 @@ and the total number of *individuals* present, or total abundance.
 **The questions in this section are for you to mull over as you work
 through. You do not need to answer them in your submission. When we get
 to analyzing specific species, please do answer those questions in your
-submission.**
+submission.** The questions you should answer are also collected here:
+<https://github.com/diazrenata/EVS3000L-fall2020/blob/master/week5_temporal/week5_assignment_questions.md>
 
 ``` r
 richness_plot <- ggplot(rodent_data, aes(x = year, y = richness)) +

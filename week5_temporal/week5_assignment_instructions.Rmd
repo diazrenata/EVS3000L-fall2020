@@ -117,7 +117,7 @@ rodent_data <- read.csv("data/rodent_data.csv", stringsAsFactors = F)
 
 We will look at how two aspects of this community have changed over the past 40 years: the total number of species present, or species richness, and the total number of *individuals* present, or total abundance.
 
-**The questions in this section are for you to mull over as you work through. You do not need to answer them in your submission. When we get to analyzing specific species, please do answer those questions in your submission.**
+**The questions in this section are for you to mull over as you work through. You do not need to answer them in your submission. When we get to analyzing specific species, please do answer those questions in your submission.** The questions you should answer are also collected here: https://github.com/diazrenata/EVS3000L-fall2020/blob/master/week5_temporal/week5_assignment_questions.md
 
 ```{r plot abundance and richness, eval = T}
 
