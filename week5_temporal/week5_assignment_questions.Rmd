@@ -1,0 +1,49 @@
+---
+title: "Week 5 Temporal analysis - Questions"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = F,message = F)
+```
+
+Please answer these questions in a text or Word document and upload them along with your results.
+
+
+### For bannertail kangaroo rats:
+
+
+Look at the plot.  **What dynamics stand out to you**? Changes in abundance over time? Steadiness, or variability?
+
+
+Look at the results of the linear model. Use them to answer these questions: 
+
+* What is the slope estimate for the bannertails?
+* Is this model statistically significant? (p value < .05, or the confidence intervals for the slope estimate **not** overlapping 0)
+* Does this fit with your intuition from the plot?
+* If you got these results for a species you were monitoring, what would you think? What questions or studies would it prompt you to look into further? 
+
+
+### For the species of your choice:
+
+Which species did you choose?
+
+Look at your plot. What do the dynamics for your species *look like* to you? Would you describe them as increasing, decreasing, random, or something else?
+
+Look at the results for the linear model, and answer these questions:
+
+* Is this model statistically significant?
+* If it is, what is the slope estimate? Is this species increasing or decreasing over time?
+* Does this species' dynamics match or differ from the bannertail kangaroo rats? 
+* If you were monitoring this species, what questions would these results raise?
+
+
+### Reflection questions
+
+* How do the dynamics of individual species correspond to the overall dynamics of species richness and total abundance? 
+* In your opinion, do the linear models tend to match your sense of the dynamics you see from the plots? Are there patterns you see that the models don't seem to capture? 
+* What questions do these results inspire? 
+* What additional data or information could you imagine gathering that would help you better understand these results?
+
+
+Upload your answers to eLearning, along with  `species_dynamics.jpg` and `species_lm.Rds`.
