@@ -34,16 +34,19 @@ Copy and paste this code to set up. You may get a notification about
 copy-pasting stuff into the virtual session. Click OK and continue.
 
 ``` r
-if(!dir.exists("Documents/EVS3000L")) {
-dir.create("Documents/EVS3000L")
+setwd("~")
+
+if(!dir.exists("EVS3000L")) {
+  dir.create("EVS3000L")
 }
-if(!dir.exists("Documents/EVS3000L/week5")) {
-dir.create("Documents/EVS3000L/week5")
+
+if(!dir.exists("EVS3000L/week5")) {
+dir.create("EVS3000L/week5")
 }
-if(!dir.exists("Documents/EVS3000L/week5/data")) {
-dir.create("Documents/EVS3000L/week5/data")
+if(!dir.exists("EVS3000L/week5/data")) {
+dir.create("EVS3000L/week5/data")
 }
-setwd("Documents/EVS3000L/week5/")
+setwd("EVS3000L/week5/")
 
 library(ggplot2)
 library(dplyr)
