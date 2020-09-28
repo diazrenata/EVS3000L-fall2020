@@ -1,0 +1,18 @@
+
+## Downloading data from the NEON Portal to UFApps
+
+You can use the NEON Data Portal to download NEON data directly to your computer as a .zip file. **Because we will want to open the data we download in R on UFApps**, we want to download the data **to your file storage on UFApps**.
+
+To do this:
+  
+  - Go to the landing page for UFApps (the page with all the app icons - in my web browser, the tab is called "Citrix Receiver")
+- Launch the Google Chrome app
+- Navigate to the data portal in the Chrome window **within UFApps**: http://data.neonscience.org/
+  - Search for a data package and use the online interface to download it as a .zip file.
+- When the download has completed, exit the Chrome window within UFApps.
+- Go back to the landing page and launch the M Drive app. - Open the Downloads folder.
+- Confirm that there is a .zip folder there that you just downloaded. It will have a name like "NEON_temp-air-single".
+- Select it. You may get a warning that opening files can be harmful to your computer; dismiss it.
+- In the file explorer, select "Move to" and then "Choose location".
+- In the window that pops up, navigate to `UFApps > Documents > EVS3000L > week6`. Select the `week6` folder and click Move.
+- Exit the M drive app. 

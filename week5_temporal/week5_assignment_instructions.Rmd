@@ -24,7 +24,9 @@ You may see a prompt to "set up secure access to your files". There's no need to
 
 ## Setup
 
-Select "File", "New File", and "RScript" in the top left menu bar. This will give you a place to copy and paste code.
+RStudio may have saved your workspace from last week's lab. We want a clean area to copy-paste code. If the top left pane has anything in it ("Untitled1", "Untitled2"), close them - you don't need to save them. When you close everything the top left pane may minimize. That's OK, it will come back!
+
+Select "File", "New File", and "RScript" in the top left menu bar. This will give you a new place to copy and paste code.
 
 To run code, either highlight it and click the "Run" button in the top right of the top left pane, or highlight it and press Ctrl + Enter. 
 
