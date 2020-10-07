@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = F,message = F)
 ## Getting to UFApps
 
 Here are the instructions to get to UFApps - they are the same as last week. 
-\
+
 
 Navigate to: https://info.apps.ufl.edu
 

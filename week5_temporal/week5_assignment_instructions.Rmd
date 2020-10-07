@@ -280,7 +280,7 @@ First, plot how your species has changed over time:
 
 ```{r plot your species, eval = F}
 
-my_species_plot <- ggplot(rodent_data, aes(x = year, y = bannertail)) + # Replace bannertail with your species
+my_species_plot <- ggplot(rodent_data, aes(x = year, y = pocketmouse)) + # Replace bannertail with your species
   geom_point() +
   geom_line() +
   theme_bw() +
@@ -297,7 +297,7 @@ Now fit a linear model to quantitively describe the dynamics:
 
 ```{r lm your species, eval = F}
 
-my_species_lm <- lm(bannertail ~ year, data = rodent_data) # Replace bannertail with your species
+my_species_lm <- lm(pocketmouse ~ year, data = rodent_data) # Replace bannertail with your species
 
 summary(my_species_lm)
 

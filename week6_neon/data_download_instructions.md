@@ -1,5 +1,7 @@
-Data download instructions
+NEON + UF EnvironmentaL Science Lab Class
 ================
+Felipe Sanchez, <fsanchez@battelleecology.org> Renata Diaz (formatting)
+October 5, 2020
 
 ## Download data for this exercise in UFApps
 
